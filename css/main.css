@@ -94,18 +94,26 @@ header .logo {
   }
 }
 
-header nav ul {
+header .main-nav {
   display: flex; 
 }
 
 @media (max-width: 767px) {
   /* it willn't work if you add (ul) */
-  header nav {
+  header .main-nav {
     margin: auto;
   }
 }
 
-header nav li > a {
+/* for the seek of the order this part only if MegaMenu need to be here */
+header .main-nav > li:hover .mega-menu {
+  opacity: 1;
+  z-index: 100;
+  /* 1px ? for more accuracy */
+  top: calc(100% + 1px);
+}
+
+header .main-nav > li > a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,14 +127,14 @@ header nav li > a {
 }
 
 @media (max-width: 767px) {
-  header nav li > a {
+  header .main-nav > li > a {
     padding: 10px;
     font-size: 14px;
     height: 40px;
   }
 }
 
-header nav li > a::before {
+header .main-nav > li > a::before {
   content: "";
   position: absolute; 
   width: 100%;
@@ -137,14 +145,106 @@ header nav li > a::before {
   transition: var(--main-transition, 0.3s);
 }
 
-header nav li > a:hover {
+header .main-nav > li > a:hover {
   color: var(--main-color, #2196f3);
   background-color: #fafafa;
 }
 
-header nav li > a:hover::before {
+header .main-nav > li > a:hover::before {
   left: 0;
 }
+
+/* __ Start MegaMenu  __ */
+header .mega-menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 30px;
+  background-color: #fff;
+  border-bottom: 3px solid var(--main-color, #2196f3);
+  /* make z-index 100 during modification | -1 to hide it behind the landing section */
+  z-index: -1;
+  display: flex;
+  gap: 40px;
+  /* 2 transitions (opacity form 0 to 1 - 50px from the top) */
+  top: calc(100% + 50px);
+  opacity: 0;
+  /* transition for 2 properties only */
+  transition: top var(--main-transition, 0.3s), opacity var(--main-transition, 0.3s);
+}
+
+@media (max-width: 767px) {
+  header .mega-menu {
+    flex-direction: column;
+    gap: 0;
+    padding: 5px;
+  }
+}
+
+header .mega-menu .img-holder img{
+  /* width: 523px; */
+  /* height: 308px; */
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  header .mega-menu .img-holder {
+    display: none;
+  }
+}
+
+header .mega-menu .links {
+  min-width: 250px;
+  /* to adjust the width in Medium size and don't have effect on Large size */
+  flex: 1;
+}
+
+header .mega-menu .links li {
+  position: relative;
+}
+
+header .mega-menu .links li:not(:last-child) {
+  border-bottom: 1px solid #e9e6e6;
+}
+
+@media (max-width: 767px) {
+  header .links:first-of-type li:last-child {
+    border-bottom: 1px solid #e9e6e6;
+  }
+}
+
+header .links li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* Why? in (li:hover::before) we will make 100% to fill all */
+  width: 0;
+  height: 100%;
+  /* if you can not see the color change it */
+  background-color: #fafafa;
+  z-index: -1;
+  transition: var(--main-transition, 0.3s);
+}
+
+header .links li:hover::before {
+  /* content: ""; */
+  width: 100%;
+}
+
+header .links li a {
+  color: var(--main-color, #2196f3);
+  padding: 15px;
+  display: block;
+  font-size: 18px; /* 1rem */
+  font-weight: bold;
+}
+
+header .links li a i {
+  margin-right: 10px;
+}
+/* __ End MegaMenu  __ */
+
 /* End Header */
 
 /* Start Landing */
