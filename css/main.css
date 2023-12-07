@@ -526,6 +526,172 @@ header .links li a i {
 }
 /* End Gallery */
 
+/* Start Features */
+.features {
+  padding-top: var(--main-padding-top, 100px);
+  padding-bottom: var(--main-padding-bottom, 100px);
+  position: relative;
+  background-color: #fff;
+}
+
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.features .box {
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.features .box .img-holder {
+  position: relative;
+  overflow: hidden;
+}
+
+/* overlay */
+.features .box .img-holder::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.features .box .img-holder::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 0 170px 500px;
+  border-color: transparent transparent #fff transparent;
+  transition: var(--main-transition, 0.3s);
+}
+
+.features .box img {
+  max-width: 100%;
+}
+
+.features .box:hover .img-holder::after {
+  border-width: 170px 500px 170px 0;
+}
+
+/* start my own modification */
+@media (max-width: 684px) {
+  .features .box .img-holder::after {
+    border-width: 0 0 170px 700px;
+  }
+  .features .box:hover .img-holder::after {
+    border-width: 170px 700px 170px 0;
+  }
+}
+/* end my own modification */
+
+.features .box h2 {
+  position: relative;
+  text-transform: capitalize;
+  font-size: 40px;
+  margin: auto;
+  width: fit-content;
+}
+
+.features .box h2::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 15px;
+  height: 5px;
+  /* background-color: yellow; */
+  /* 30px is 15px from the left & 5px from the right */
+  width: calc(100% - 30px);
+}
+
+.features .box p {
+  line-height: 2;
+  font-size: 20px;
+  margin: 30px 0;
+  padding: 25px;
+  color: #777;
+}
+
+.features .box a {
+  display: block;
+  text-transform: capitalize;
+  border: 3px solid transparent;
+  width: fit-content;
+  margin: 0 auto 30px;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 10px 30px;
+  /* color: yellow; */
+  border-radius: 6px;
+  transition: var(--main-transition, 0.3s);
+}
+
+.features .quality .img-holder::before {
+  /* #f44036 */
+  background-color: rgba(244, 64, 54, 0.5);
+}
+
+.features .quality h2::after {
+  background-color: #f44036;
+}
+
+.features .quality a {
+  color: #f44036;
+  border-color: #f44036;
+  /* to change in simple smart way */
+  background: linear-gradient(to right, #f44036 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.features .time .img-holder::before {
+  /* #009688 */
+  background-color: rgba(0, 150, 136, 0.5);
+}
+
+.features .time h2::after {
+  background-color: #009688;
+}
+
+.features .time a {
+  color: #009688;
+  border-color: #009688;
+  /* to change in simple smart way */
+  background: linear-gradient(to right, #009688 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.features .passion .img-holder::before {
+  /* #03a9f4 */
+  background-color: rgba(3, 169, 244, 0.5);
+}
+
+.features .passion h2::after {
+  background-color: #03a9f4;
+}
+
+.features .passion a {
+  color: #03a9f4;
+  border-color: #03a9f4;
+  /* to change in simple smart way */
+  background: linear-gradient(to right, #03a9f4 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.features .box:hover a {
+  /* this is how it will make the color fill in all 3 boxs */
+  background-position: left bottom;
+  color: #fff;
+}
+/* End Features */
+
 /* Start Animation */
 @keyframes up-and-down {
   0%, 100% {
