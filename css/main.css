@@ -703,8 +703,7 @@ header .links li a i {
 .testimonials .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  /* gap: 40px; */
-  gap: 60px 40px;
+  gap: 40px;
 }
 
 .testimonials .box {
@@ -719,7 +718,7 @@ header .links li a i {
   /* max-width: 100%; */
   position: absolute;
   right: -10px;
-  top: -50px;
+  top: -20px;
   width: 100px;
   /* choose the correct size of the image you don't need to put height */
   border-radius: 50%;
@@ -749,6 +748,118 @@ header .links li a i {
   margin-bottom: 0;
 }
 /* End Testimonials */
+
+/* Start Team */
+.team {
+  padding-top: var(--main-padding-top, 100px);
+  padding-bottom: var(--main-padding-bottom, 100px);
+  position: relative;
+}
+
+.team .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.team .box {
+  position: relative;
+}
+
+.team .box::before,
+.team .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 10px;
+  transition: var(--main-transition, 0.3s);
+}
+
+.team .box::before {
+  width: calc(100% - 60px);
+  /* why -2 ? becouse there is anther layer will be -1 */
+  z-index: -2;
+}
+
+.team .box::after {
+  background-color: #e4e4e4;
+  width: 0;
+  z-index: -1;
+}
+
+.team .box:hover::after {
+  width: calc(100% - 60px);
+}
+
+.team .box .data {
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.team .box .data img {
+  width: calc(100% - 60px);
+  transition: var(--main-transition, 0.3s);
+  border-radius: 10px;
+}
+
+.team .box:hover img {
+  filter: grayscale(100%);
+}
+
+.team .box .data .social {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.team .box .data .social a {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team .box .social a:hover i {
+  color: var(--main-color, #2196f3);
+}
+
+.team .box .data .social i {
+  color: #777;
+  transition: var(--main-transition, 0.3s);
+}
+
+.team .box .info {
+  padding-left: 80px;
+}
+
+.team .box .info h3 {
+  text-transform: capitalize;
+  margin-bottom: 0;
+  color: var(--main-color, #2196f3);
+  font-size: 22px;
+  transition: var(--main-transition, 0.3s);
+}
+
+.team .box .info p {
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.team .box:hover .info h3 {
+  color: #777;
+}
+
+/* Note : -> you can add more details in responsive */
+
+/* End Team */
 
 /* Start Animation */
 @keyframes up-and-down {
