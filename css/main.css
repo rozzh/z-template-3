@@ -961,6 +961,62 @@ header .links li a i {
 }
 /* End Services */
 
+/* Start Skills */
+.our-skills {
+  padding-top: var(--main-padding-top, 100px);
+  padding-bottom: var(--main-padding-bottom, 100px);
+  position: relative;
+}
+
+.our-skills .container {
+  display: flex;
+  align-items: center;
+}
+
+.our-skills img {
+  width: 500px;
+}
+
+@media (max-width: 991px) {
+  .our-skills img {
+    display: none;
+  }
+}
+
+.our-skills .skills {
+  flex: 1;
+}
+
+.our-skills .skills h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.our-skills .skills h3 span {
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: var(--main-color, #2196f3);
+}
+
+.our-skills .skills .progress {
+  height: 30px;
+  background-color: #eee;
+  position: relative;
+}
+
+.our-skills .skills .progress span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--main-color, #2196f3);
+
+}
+/* End Skills */
+
 /* Start Animation */
 @keyframes up-and-down {
   0%, 100% {
