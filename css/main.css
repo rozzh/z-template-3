@@ -1582,6 +1582,121 @@ header .links li a i {
 }
 /* Start Stats */
 
+/* Start Discount */
+.discount {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.discount .image {
+  background-image: url(../img/discount-background1.jpg);
+  background-size: cover;
+  color: #fff;
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* note: the image added from the css file */
+  z-index: 1;
+  animation: change-background 10s linear infinite;
+}
+
+.discount .image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 135, 224, .97);
+  z-index: -1;
+}
+
+/* you can add just one min-width for both and make flex-basis: 50% */
+@media (max-width: 991px) {
+  .discount .image{ 
+    flex-basis: 100%;
+  }
+}
+
+.discount .form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
+}
+
+/* you can add just one min-width for both and make flex-basis: 50% */
+@media (max-width: 991px) {
+  .discount .form {
+    flex-basis: 100%;
+  }
+}
+
+.discount .form .input {
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  caret-color: var(--main-color, #2196f3);
+}
+
+.discount .form textarea.input {
+  resize: none;
+  height: 200px;
+}
+
+.discount .form .input:focus {
+  outline: none;
+}
+
+.discount .form [type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--main-color, #2196f3);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: var(--main-transition, 0.3s);
+  text-transform: capitalize;
+}
+
+.discount .form [type="submit"]:hover {
+  background-color: var(--main-color-alt, #1787e0);
+}
+
+/* general cases in image and form */
+.discount .content {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.discount .content h2 {
+  font-size: 40px;
+  letter-spacing: -2px;
+  text-transform: capitalize;
+}
+
+.discount .content p {
+  line-height: 1.6;
+  font-size: 18px;
+  max-width: 500px;
+}
+
+.discount .content img {
+  width: 300px;
+  max-width: 100%;
+}
+
+/* End Discount */
+
 /* Start Animation */
 @keyframes up-and-down {
   0%, 100% {
@@ -1644,6 +1759,15 @@ header .links li a i {
     /* it will looks like it's getout of the div - remove (overflow: hidden) */
     width: 200%;
     height: 200%;
+  }
+}
+
+@keyframes change-background {
+  0%, 100% {
+    background-image: url(../img/discount-background1.jpg);
+  }
+  50% {
+    background-image: url(../img/discount-background2.jpg);
   }
 }
 /* End Animation */
