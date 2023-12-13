@@ -1492,6 +1492,96 @@ header .links li a i {
 
 /* End Videos */
 
+/* Start Stats */
+.stats {
+  padding-top: var(--main-padding-top, 100px);
+  padding-bottom: var(--main-padding-bottom, 100px);
+  position: relative;
+  background-image: url(../img/stats.jpg);
+  background-size: cover;
+  min-height: 300px;
+}
+
+.stats::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* originaly .95 */
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.stats h2 {
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: capitalize;
+  width: fit-content;
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+.stats .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stats .box {
+  background-color: #fff;
+  padding: 30px 15px;
+  text-align: center;
+  position: relative;
+  opacity: .7;
+  transition: var(--main-transition, 0.3s);
+}
+
+.stats .box::before,
+.stats .box::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--main-color, #2196f3);
+  transition: 1s;
+  height: 0;
+}
+
+.stats .box::before{
+  top: 0;
+  right: 0;
+}
+
+.stats .box::after{
+  left: 0;
+  bottom: 0;
+}
+
+.stats .box:hover {
+  opacity: 1;
+}
+
+.stats .box:hover::before,
+.stats .box:hover::after {
+  height: 100%;
+}
+
+.stats .box .number {
+  display: block;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.stats .box .text {
+  color: var(--main-color, #2196f3);
+  font-style: italic;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+/* Start Stats */
+
 /* Start Animation */
 @keyframes up-and-down {
   0%, 100% {
